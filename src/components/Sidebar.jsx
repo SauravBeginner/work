@@ -81,7 +81,7 @@ const Sidebar = () => {
     <>
       <aside
         className={` bg-[#fbfff5] p-8 min-h-screen fixed z-20 ${
-          isSidebarOpen ? "w-52 md:w-64" : "w-28"
+          isSidebarOpen ? "w-52 md:w-64" : "w-24"
         }`}
       >
         <div className="lg:hidden flex items-center space-x-4 mb-8 justify-center">
@@ -99,7 +99,9 @@ const Sidebar = () => {
             <button
               key={item.id}
               // className="inline-flex items-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  hover:text-accent-foreground h-10 px-4 py-2 justify-start gap-2 hover:shadow-lg hover:bg-slate-100"
-              className="group inline-flex items-center whitespace-nowrap rounded-md text-sm hover:font-bold ring-offset-background transition-colors h-14 px-4 py-2 justify-start gap-2 hover:shadow-lg text-black hover:text-white"
+              className={`group inline-flex items-center whitespace-nowrap rounded-md text-sm hover:font-bold ring-offset-background transition-colors h-14 ${
+                isSidebarOpen && "px-4"
+              } py-2 justify-start gap-2 hover:shadow-lg text-black hover:text-white`}
               onClick={() => {
                 if (item.name === "Add Document") {
                   setIsModalOpen(true);
