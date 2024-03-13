@@ -10,6 +10,7 @@ import { MyModal } from "./components/MyModal";
 import Login from "./pages/Login";
 import { Signup } from "./components/Signup";
 import Profile from "./pages/Profile";
+import { Footer } from "./components/Footer";
 // import "./App.css";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );

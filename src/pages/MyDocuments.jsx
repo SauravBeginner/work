@@ -1,6 +1,7 @@
 import { DocumentCard } from "../components/DocumentCard";
 import { HeaderImage } from "../components/HeaderImage";
 import { HeroSection } from "../components/HeroSection";
+import { SearchBar } from "../components/SearchBar";
 import Sidebar from "../components/Sidebar";
 const dummyData = [
   {
@@ -242,9 +243,12 @@ const MyDocuments = () => {
             <Sidebar />
           </span>
 
-          <div className=" flex-1 mt-20 ml-52 lg:ml-72">
-            {/* <HeroSection />  */}
-            <main className=" mx-10 my-5 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
+          <div className="flex-1 mt-20 pt-10 ml-52 lg:ml-72">
+            <span className="">
+              <SearchBar />
+            </span>
+
+            <main className="mt-10 mx-10 my-10 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
               {dummyData.map((item) => (
                 <DocumentCard key={item.id} data={item} />
               ))}

@@ -16,7 +16,7 @@ export const DocumentCard = ({ data }) => {
     <>
       {isModalOpen && <MyModal onClose={closeModal} />}
       <div
-        className="group bg-[#f0f4e8] w-[full] max-w-sm  whitespace-nowrap rounded-md text-sm font-heading ring-offset-background transition-colors px-4 py-2 justify-start gap-2 hover:shadow-xl hover:text-gray-200
+        className="group bg-[#d5fcd0] w-[full] max-w-sm  whitespace-nowrap rounded-md text-sm font-heading ring-offset-background transition-colors px-4 py-2 justify-start gap-2 hover:shadow-xl hover:text-gray-200
     border border-gray-200 shadow-md cursor-pointer "
       >
         <div className="flex flex-col items-center pb-10">

@@ -15,6 +15,8 @@ import {
   IconLayoutSidebarRightCollapse,
   IconLayoutSidebarLeftCollapse,
 } from "@tabler/icons-react";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleSidebar } from "../redux/sidebarSlice";
 
 const sideBarItems = [
   {
@@ -57,15 +59,19 @@ const sideBarItems = [
 const Sidebar = () => {
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
+  const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
+  console.log(isSidebarOpen);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  // const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
+  const handleSidebar = () => {
+    dispatch(toggleSidebar());
   };
 
   const handleSaveDocument = (documentName) => {
@@ -74,7 +80,7 @@ const Sidebar = () => {
   return (
     <>
       <aside
-        className={` bg-[#fbfff5] p-8 min-h-screen fixed ${
+        className={` bg-[#fbfff5] p-8 min-h-screen fixed z-20 ${
           isSidebarOpen ? "w-52 md:w-64" : "w-28"
         }`}
       >
@@ -222,7 +228,7 @@ const Sidebar = () => {
             </button>{" "}
             <span
               className="fixed bottom-4  z-50 group inline-flex items-center whitespace-nowrap rounded-md text-sm hover:font-bold ring-offset-background transition-colors h-14 px-3 py-2 justify-start gap-2 hover:shadow-lg text-black hover:text-white"
-              onClick={toggleSidebar}
+              onClick={handleSidebar}
             >
               {isSidebarOpen ? (
                 <IconLayoutSidebarLeftCollapse stroke={1} />
