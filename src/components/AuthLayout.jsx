@@ -1,30 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// AuthLayout.js
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import { useDispatch, useSelector } from "react-redux";
+import { isAuthenticated } from "../App";
 
-export default function AuthLayout({ children, authentication = true }) {
-  const navigate = useNavigate();
-  const [loader, setLoader] = useState(true);
-  const authStatus = useSelector((state) => state.auth.status);
+const AuthLayout = () => {
+  const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
 
-  useEffect(() => {
-    //TODO: make it more easy to understand
+  return (
+    <div className="flex">
+      {isAuthenticated && <Sidebar />}
+      <main
+        className={`flex-1 mt-4  mx-10 md:mx-0 min-h-screen ${
+          isAuthenticated ? (isSidebarOpen ? "md:ml-72" : "md:ml-28") : ""
+        } `}
+      >
+        <Outlet />
+        {/* This will render the currently selected route’s component */}
+      </main>
+    </div>
+  );
+};
 
-    // if (authStatus ===true){
-    //     navigate("/")
-    // } else if (authStatus === false) {
-    //     navigate("/login")
-    // }
-
-    //let authValue = authStatus === true ? true : false
-
-    if (!authentication && !authStatus) {
-      navigate("/login");
-    } else if (authentication && authStatus) {
-      navigate("/");
-    }
-    setLoader(false);
-  }, [authStatus, navigate, authentication]);
-
-  return loader ? <h1>Loading...</h1> : <>{children}</>;
-}
+export default AuthLayout;

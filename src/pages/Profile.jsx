@@ -4,12 +4,9 @@ import Sidebar from "../components/Sidebar";
 
 const Profile = () => {
   return (
-    <div className="flex">
-      <Sidebar />
-      <main className="flex-1 mt-20 pt-10 ml-56">
-        <MyProfile />
-      </main>
-    </div>
+    <main className="flex-1 mt-36">
+      <MyProfile />
+    </main>
   );
 };
 

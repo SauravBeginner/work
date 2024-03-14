@@ -66,16 +66,10 @@ const Home = () => {
   };
   return (
     <>
-      <div className="flex">
-        <Sidebar />
-        <main
-          className={`flex-1 mt-4 ${
-            isSidebarOpen ? "ml-52 lg:ml-72" : "ml-28"
-          }`}
-        >
-          <HeroSection />
-        </main>
-      </div>{" "}
+      <main className={`flex-1 mt-4 `}>
+        <HeroSection />
+      </main>
+
       {isModalOpen && (
         <MyModal onClose={handleCloseModal} onSave={handleSaveDocument} />
       )}

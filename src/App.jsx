@@ -1,4 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import AddDocument from "./pages/AddDocument";
 import MyDocuments from "./pages/MyDocuments";
@@ -17,6 +23,12 @@ import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { login, logout } from "./redux/authSlice";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import AuthLayout from "./components/AuthLayout";
+import EditProfile from "./pages/EditProdile";
+import LogoutModal from "./components/LogoutModal";
+
+export const isAuthenticated = true;
 
 function App() {
   // const [loading, setLoading] = useState(true);
@@ -58,20 +70,33 @@ function App() {
 
   //   fetchUserData();
   // }, []);
+
   return (
     <>
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<HomeDemo />} />
-          <Route path="/addDocument" element={<AddDocument />} />
-          <Route path="/myDocuments" element={<MyDocuments />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/modal" element={<MyModal />} />
+          {/* Routes accessible to everyone */}
+          <Route element={<AuthLayout />}>
+            <Route exact path="/" element={<Home />} />
+          </Route>{" "}
+          <Route exact path="/logout" element={<LogoutModal />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile />} />
+          {/* Protected routes - accessible only if isAuthenticated is true */}
+          {isAuthenticated ? (
+            <Route element={<AuthLayout />}>
+              <Route path="/addDocument" element={<AddDocument />} />
+              <Route path="/myDocuments" element={<MyDocuments />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/editprofile" element={<EditProfile />} />
+            </Route>
+          ) : (
+            <>
+              <Route path="*" element={<Navigate to="/login" replace />} />
+            </>
+          )}
         </Routes>
         <Footer />
       </Router>

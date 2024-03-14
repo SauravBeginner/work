@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./Button";
+import { Img } from "./Img";
 
 export const HeroSection = () => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ export const HeroSection = () => {
     <div className="max-w-7xl mx-auto lg:px-8 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 py-20">
         <div className="text-center lg:text-left">
-          <h1 className="  text-gray-900 mb-6">
+          <h1 className="text-gray-900 mb-6">
             <span className="block text-2xl">Secure your documents with</span>
             <span className="block text-[#22c55e] py-4 text-3xl font-bold font-heading">
               VersionVault
@@ -31,7 +32,7 @@ export const HeroSection = () => {
           </div>
         </div>
         <div className="hidden lg:flex justify-end">
-          <div className="space-y-6">
+          {/* <div className="space-y-6">
             <div className="bg-[#22c55e] h-64 w-64 rounded-lg" />
             <div className="flex justify-between space-x-6">
               <div className="bg-[#a3e635] h-32 w-32 rounded-lg" />
@@ -44,7 +45,9 @@ export const HeroSection = () => {
               <div className="bg-[#a3e635] h-16 w-16 rounded-lg" />
             </div>
             <div className="bg-[#a3e635] h-8 w-32 rounded-lg" />
-          </div>
+          </div> */}
+
+          <Img src="https://i.pinimg.com/originals/d1/54/66/d154660a6ae3104de2b0a314667a5ab6.png" />
         </div>
       </div>
     </div>

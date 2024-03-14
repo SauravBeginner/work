@@ -276,31 +276,21 @@ const MyDocuments = () => {
         </div>
       </div> */}
       <>
-        <div className="flex">
-          <span>
-            <Sidebar />
+        <div className={`flex-1 mt-20 pt-10 lg:mx- container`}>
+          <span className="flex flex-col md:grid  justify-center lg:grid-cols-12 items-center mr-3 justify-items-stretch ">
+            <span className="md:col-span-10 my-2">
+              <SearchBar />
+            </span>
+            <span className="md:col-span-2 ">
+              <Button className="">Total Documents: {dummyData?.length}</Button>
+            </span>
           </span>
 
-          <div
-            className={`flex-1 mt-20 pt-10 ${
-              isSidebarOpen ? "ml-52 lg:ml-72" : "ml-28"
-            }`}
-          >
-            <span className="grid lg:grid-cols-12">
-              <span className="lg:col-span-10 my-2">
-                <SearchBar />
-              </span>
-              <span className="lg:grid-cols-1 mt-2">
-                <Button className="">Total Documents: {data?.length}</Button>
-              </span>
-            </span>
-
-            <main className="my-10 mr-9 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6">
-              {data.map((item) => (
-                <DocumentCard key={item._id} data={item} />
-              ))}
-            </main>
-          </div>
+          <main className="my-10 grid grid-cols-1 lg:grid-cols-5  md:grid-cols-3 xl:grid-cols-6 gap-4 justify-items-center md:justify-items-stretch">
+            {dummyData?.map((item) => (
+              <DocumentCard key={item._id} data={item} />
+            ))}
+          </main>
         </div>
       </>
     </>

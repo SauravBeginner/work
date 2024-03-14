@@ -12,39 +12,33 @@ export const DocumentCard = ({ data }) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   return (
     <>
       {isModalOpen && <MyModal onClose={closeModal} />}
-      <div
-        className="group bg-[#d5fcd0] w-[full] max-w-sm  whitespace-nowrap rounded-md text-sm font-heading ring-offset-background transition-colors px-4 py-2 justify-start gap-2 hover:shadow-xl hover:text-gray-200
-    border border-gray-200 shadow-md cursor-pointer "
-      >
-        <div className="flex flex-col items-center pb-10">
+      <div className="hover:bg-[#d5fcd0] bg-[#f5f7ef] w-[10rem] max-w-sm whitespace-nowrap rounded-md text-sm font-heading ring-offset-background transition-colors p-4 py-2 justify-start gap-2 hover:shadow-xl hover:text-gray-200 border border-gray-200 shadow-md cursor-pointer hover:font-bold">
+        <div className="flex flex-col items-center pb-4">
           <img
-            className="w-28 h-28 mb-3 rounded-full shadow-lg mt-10"
+            className="w-20 h-20 mb-2 rounded-full shadow-lg mt-4"
             src="https://img.freepik.com/free-vector/document-vector-colorful-design_341269-1262.jpg"
             alt="Bonnie image"
           />
-          <h5 className="mb-1 text-xl font-medium  hover:text-white">
-            {data.name}{" "}
+          <h5 className="mb-1 text-lg font-medium text-gray-700 hover:text-gray-900 ">
+            {data?.name}{" "}
           </h5>
-          {/* <span className="text-sm text-gray-500 :text-gray-400">
-          Visual Designer
-        </span> */}
-          <div className="flex mt-4 md:mt-6">
-            <span
-              className="group py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#a3e635] rounded-lg border border-gray-200  hover:text-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 :bg-gray-800 :text-gray-400 :border-gray-600 :hover:text-white :hover:bg-gray-700"
+          <div className="flex mt-2">
+            <button
+              className="group py-1 px-2 ms-1 text-xs font-medium text-gray-900 focus:outline-none bg-[#a3e635] rounded-lg border border-gray-200 hover:text-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100"
               onClick={() => setIsModalOpen(true)}
             >
-              <IconEdit />
-            </span>
-
-            <a
+              <IconEdit size={16} />
+            </button>
+            <button
               href="#"
-              className="group py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-[#56f575] rounded-lg border border-gray-200  hover:text-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100 :bg-gray-800 :text-gray-400 :border-gray-600 :hover:text-white :hover:bg-gray-700"
+              className="group py-1 px-2 ms-1 text-xs font-medium text-gray-900 focus:outline-none bg-[#56f575] rounded-lg border border-gray-200 hover:text-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-100"
             >
-              <IconTrash />
-            </a>
+              <IconTrash size={16} />
+            </button>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ export const SvgHome = () => {
 
 // SvgVideo.jsx
 
-export const SvgVideo = () => {
+export const SvgVideo = ({ disabled }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ export const SvgVideo = () => {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="text-purple-500"
+      className={disabled ? "text-gray-500" : "text-purple-500"} // Change class based on disabled state
     >
       <path d="m22 8-6 4 6 4V8Z" />
       <rect width={14} height={12} x={2} y={6} rx={2} ry={2} />
@@ -66,6 +66,27 @@ export const SvgGallery = () => {
   );
 };
 
+//SvgCreateDocument
+export const SvgCreateDocument = ({ disabled }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={disabled ? "text-gray-500" : "text-purple-500"} // Change class based on disabled state
+    >
+      <path d="M12 19h-7a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v3.5" />
+      <path d="M16 19h6" />
+      <path d="M19 16v6" />
+    </svg>
+  );
+};
 // SvgDocuments.jsx
 
 export const SvgDocuments = () => {

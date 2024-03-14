@@ -9,10 +9,7 @@ import AddDocument from "./pages/AddDocument.jsx";
 import MyDocuments from "./pages/MyDocuments.jsx";
 import Login from "./pages/Login.jsx";
 import { Signup } from "./components/Signup.jsx";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import AuthLayout from "./components/AuthLayout.jsx";
-import Profile from "./pages/Profile.jsx";
+import { RouterProvider } from "react-router-dom";
 
 // const router = createBrowserRouter([
 //   {
@@ -84,7 +81,7 @@ import Profile from "./pages/Profile.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      {/* <RouterProvider router={router}> */}
+      {/* <RouterProvider router={router} > */}
       <App />
       {/* </RouterProvider> */}
     </Provider>
