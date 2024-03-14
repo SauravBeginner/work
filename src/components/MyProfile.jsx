@@ -1,4 +1,7 @@
 import { Avatar } from "./Avatar";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUserData } from "../redux/authSlice";
+import { useEffect } from "react";
 
 const webDeveloperServices = [
   {
@@ -32,6 +35,18 @@ const webDeveloperServices = [
   },
 ];
 export const MyProfile = () => {
+  const token = localStorage.getItem("token");
+
+  const userData = useSelector((state) => state.auth.userData);
+  console.log(userData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchUserData(token));
+      console.log(userData);
+    }
+  }, [userData?.user?._id]);
   return (
     <div className="max-w-4xl mx-auto p-2">
       <div className="flex flex-col lg:flex-row gap-8">
@@ -52,7 +67,9 @@ export const MyProfile = () => {
               <Avatar className={"h-full w-full"} />
             </span>
 
-            <h2 className="text-2xl font-bold my-4">Ttile</h2>
+            <h2 className="text-2xl font-bold my-4">
+              {userData?.user?.username}
+            </h2>
             <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-white text-[#1e40af]">
               LEARN MORE
             </button>
