@@ -4,7 +4,7 @@ import { Button } from "./Button";
 
 export const HeroSection = () => {
   return (
-    <div className="max-w-7xl mx-auto px-8 ">
+    <div className="max-w-7xl mx-auto lg:px-8 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 py-20">
         <div className="text-center lg:text-left">
           <h1 className="  text-gray-900 mb-6">
@@ -24,7 +24,7 @@ export const HeroSection = () => {
             {/* <button className="bg-[#22c55e] text-white px-6 py-3 rounded-md hover:bg-[#16a34a]">
               How does it work?
             </button> */}
-            <Button />
+            <Button>Get Started | Login </Button>
           </div>
         </div>
         <div className="hidden lg:flex justify-end">

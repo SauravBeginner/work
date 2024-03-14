@@ -7,7 +7,7 @@ import { LogoImage } from "./LogoImage";
 export const Navbar = () => {
   return (
     <nav className="hidden md:flex py-4 px-5  justify-between items-center bg-[#fbfff5] fixed z-50 left-0 right-0">
-      <Link className="flex  items-center space-x-1 cursor-pointer" to="/">
+      <Link className="flex items-center space-x-1 cursor-pointer" to="/">
         <LogoImage />
         <LogoHeader />
         {/* <div className="hidden md:flex space-x-4">

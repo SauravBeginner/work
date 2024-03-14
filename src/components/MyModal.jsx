@@ -57,7 +57,9 @@ export const MyModal = ({ onClose, onSave }) => {
               >
                 Login to your account
               </button> */}
-              <Button className="px-5 py-2 h-12 border border-primary-500 shadow-lg" />
+              <Button className="px-5 py-2 h-12 border border-primary-500 shadow-lg text-gray-black ">
+                Save
+              </Button>
             </form>
           </div>
         </div>
