@@ -1,8 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./Button";
 
 export const HeroSection = () => {
+  const navigate = useNavigate();
   return (
     <div className="max-w-7xl mx-auto lg:px-8 ">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 py-20">
@@ -24,7 +25,9 @@ export const HeroSection = () => {
             {/* <button className="bg-[#22c55e] text-white px-6 py-3 rounded-md hover:bg-[#16a34a]">
               How does it work?
             </button> */}
-            <Button>Get Started | Login </Button>
+            <Button onClick={() => navigate("/login")}>
+              Get Started | Login{" "}
+            </Button>
           </div>
         </div>
         <div className="hidden lg:flex justify-end">
