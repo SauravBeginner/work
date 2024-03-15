@@ -1,63 +1,66 @@
 import { CiFacebook } from "react-icons/ci";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { LogoImage } from "./LogoImage";
+import { LogoHeader } from "./LogoHeader";
 
 export function Footer() {
   const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
 
   return (
     <footer
-      className={`bg-[#f2f4ea] shadow-lg mr-8 border rounded-lg ${
-        isSidebarOpen ? "ml-52 lg:ml-72" : "lg:ml-32"
+      className={`bg-[#f2f4ea] shadow-lg mr-8 px-10 border rounded-lg ${
+        isSidebarOpen ? "ml-56" : "lg:ml-32 "
       } `}
     >
-      <div className="container flex flex-col md:flex-row justify-around items-center">
-        <div className="p-4 md:mt-0">
-          <ul className="flex flex-col md:flex-row md:flex-wrap items-center">
+      <div className="container flex flex-col lg:flex-row justify-between items-center">
+        <div className="md:mt-0">
+          <ul className="flex flex-col md:flex-row md:flex-wrap items-center ">
             <li className="p-2">
-              <a
+              <Link
                 className="font-medium text-gray-600 hover:text-gray-700"
-                href="#"
+                to="#"
               >
                 Privacy Policy
-              </a>
+              </Link>
             </li>
             <li className="p-2">
-              <a
+              <Link
                 className="font-medium text-gray-600 hover:text-gray-700"
-                href="#"
+                to="#"
               >
                 Terms of Service
-              </a>
+              </Link>
             </li>
             <li className="p-2">
-              <a
+              <Link
                 className="font-medium text-gray-600 hover:text-gray-700"
-                href="#"
+                to="#"
               >
                 Contact Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className="p-4 flex flex-col md:flex-row">
-          <a
-            href="#"
+          <Link
+            to="/"
+            className="flex items-center justify-center hover:border-gray-400 "
+          >
+            <LogoImage /> <LogoHeader className />
+          </Link>
+          {/* <Link
+            to="#"
             className="flex items-center justify-center hover:border-gray-400 p-2"
           >
             <CiFacebook size={30} />
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="#"
             className="flex items-center justify-center hover:border-gray-400 p-2"
           >
             <CiFacebook size={30} />
-          </a>
-          <a
-            href="#"
-            className="flex items-center justify-center hover:border-gray-400 p-2"
-          >
-            <CiFacebook size={30} />
-          </a>
+          </Link> */}
         </div>
         <p className="text-sm font-normal text-gray-500 text-center md:text-left">
           All content copyright © 2023 VersionVaultHub.

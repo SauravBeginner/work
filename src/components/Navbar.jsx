@@ -18,7 +18,7 @@ export const Navbar = () => {
     dispatch(toggleSidebar());
   };
   return (
-    <nav className="flex py-4 px-5 justify-between items-center bg-[#f2f4ea] fixed z-50 left-0 right-0 shadow-lg">
+    <nav className="flex py-2 px-5 justify-between items-center bg-[#f2f4ea] fixed z-50 left-0 right-0 shadow-lg">
       {isAuthenticated && (
         <div className="md:block cursor-pointer" onClick={handleSidebar}>
           <IconMenu2 />

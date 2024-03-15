@@ -2,30 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* .sideBarItems button:hover {
     background: linear-gradient(to right, #fff 0%, #fafafa 100%);
   } */
 
+body {
+  /* background-color: #f7f7f7; */
+  /* font-family: Benne, sans-serif; */
+  /* color: black; */
+}
 
+body::-webkit-scrollbar {
+  width: 0; /* This will hide the scrollbar */
+}
 
-  body{
-    /* background-color: #f7f7f7; */
-    /* font-family: Benne, sans-serif; */
-    color: black;
-  }
-  .group:hover {
-    @apply bg-gradient-to-r from-primary-900 to-secondary-700;
-    transition: background 0.3s ease;
-  }
+/* Optional: You may also want to style the track and thumb */
+/* Here's an example to make the scrollbar track and thumb transparent */
+body::-webkit-scrollbar-track {
+  background-color: transparent; /* Make scrollbar track transparent */
+}
 
-  
+body::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Make scrollbar thumb transparent */
+}
+.group:hover {
+  @apply bg-gradient-to-r from-primary-900 to-secondary-700;
+  transition: background 0.3s ease;
+}
 
-  .custom-gradient {
-    @apply bg-gradient-to-r  from-blue-100 to-green-300;
-  }
-
-
-
-
-  
+.custom-gradient {
+  @apply bg-gradient-to-r  from-blue-100 to-green-300;
+}

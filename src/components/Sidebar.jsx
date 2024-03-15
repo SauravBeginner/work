@@ -111,8 +111,8 @@ const Sidebar = () => {
   return (
     <>
       <aside
-        className={`bg-[#fbfff5] py-8 px-6 min-h-screen rounded-lg border-r border-t fixed top-20  z-20 ${
-          isSidebarOpen ? "w-52 md:w-64 shadow-lg" : "hidden md:block w-24"
+        className={`bg-[#fbfff5] py-8 px-6 min-h-screen rounded-lg border-r border-t fixed top-16  z-20 ${
+          isSidebarOpen ? "w-52 md:w-52 shadow-lg" : "hidden md:block w-24"
         }`}
       >
         <div className="hidden items-center space-x-4 mb-8 justify-center">
@@ -132,7 +132,7 @@ const Sidebar = () => {
               className={`inline-flex text-center items-center whitespace-nowrap rounded-md text-sm ring-offset-background transition-colors ${
                 isSidebarOpen
                   ? "px-4 justify-start"
-                  : "h-14 w-12 justify-center"
+                  : "h-10 w-12 justify-center"
               } py-2  gap-2 text-black ${
                 item.name !== "Add Document" ||
                 (item.name === "Add Document" &&

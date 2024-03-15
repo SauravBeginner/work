@@ -2,7 +2,9 @@ import { Avatar } from "./Avatar";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../redux/authSlice";
 import { useEffect } from "react";
-
+import { useNavigate } from "react-router-dom";
+import { Button } from "./Button";
+import { LeftProfile } from "./LeftProfile";
 const webDeveloperServices = [
   {
     id: 1,
@@ -35,6 +37,7 @@ const webDeveloperServices = [
   },
 ];
 export const MyProfile = () => {
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
   const userData = useSelector((state) => state.auth.userData);
@@ -50,31 +53,7 @@ export const MyProfile = () => {
   return (
     <div className="max-w-4xl mx-auto p-2">
       <div className="flex flex-col lg:flex-row gap-8">
-        <div className="flex-1 pb-2">
-          <h2 className="text-base font-bold mb-4">A BIT ABOUT ME</h2>
-          <h1 className="text-2xl font-bold mb-6">Who Am I?</h1>
-          <p className="mb-4">
-            Hi I'm Jane Doe. Click here to add your own text and edit me.
-          </p>
-          <p className="text-sm mb-6">Image by Freepik</p>
-          <div className="bg-[#0f3b19] text-white p-6 rounded-lg flex flex-col items-center ">
-            <span className="relative flex h-40 w-40 shrink-0 overflow-hidden rounded-full border-gray-100 border-2">
-              {/* <img
-                className="aspect-square h-full w-full"
-                alt="Jane Doe"
-                src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
-              /> */}
-              <Avatar className={"h-full w-full"} />
-            </span>
-
-            <h2 className="text-2xl font-bold my-4">
-              {userData?.user?.name || "Title"}
-            </h2>
-            <button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-white text-[#1e40af]">
-              LEARN MORE
-            </button>
-          </div>
-        </div>
+        <LeftProfile userData={userData} />
         <div className="flex-1 grid grid-cols-2 gap-4">
           <div
             className="rounded-lg border bg-card text-card-foreground shadow-sm w-full"

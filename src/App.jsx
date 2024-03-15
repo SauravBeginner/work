@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import {
   BrowserRouter as Router,
   Routes,
@@ -98,19 +99,17 @@ function App() {
             </>
           )}
         </Routes>
-        <Footer />
+        <FooterWithCondition />
       </Router>
-
-      {/* <div className="w-full block">
-        <Navbar />
-        <Sidebar />
-        <main>
-          TODO: <Outlet />
-        </main>
-        <Footer />
-      </div> */}
     </>
   );
 }
 
 export default App;
+
+function FooterWithCondition() {
+  const location = useLocation();
+  const isLoginOrSignup =
+    location.pathname === "/login" || location.pathname === "/signup";
+  return !isLoginOrSignup && <Footer />;
+}

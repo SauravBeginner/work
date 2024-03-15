@@ -14,9 +14,12 @@ export default {
     fontFamily: {
       heading: "Benne",
       body: "Benne",
+      subheading: "Unna",
+      normalText: "Unna",
     },
     fontWeight: {
       normal: "400",
+      semibold: "500",
       bold: "700",
     },
     extend: {

@@ -12,7 +12,7 @@ export const LogoutModal = ({ onClose, onSave }) => {
       overlayClassName="modal-overlay" // Class name for modal overlay
     >
       <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50 z-50">
-        <div className="bg-white p-8 rounded-lg shadow-md">
+        <div className="bg-[#f2f4ea] p-8 rounded-lg shadow-md">
           <div className="flex justify-end">
             <button
               className="text-gray-500 hover:text-gray-800"
@@ -37,7 +37,7 @@ export const LogoutModal = ({ onClose, onSave }) => {
           <div className="text-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="mx-auto mb-4 text-gray-400 w-12 h-12 dark:text-gray-200"
+              className="mx-auto mb-4 text-gray-400 w-12 h-12 "
               aria-hidden="true"
               viewBox="0 0 20 20"
               fill="currentColor"
@@ -48,7 +48,7 @@ export const LogoutModal = ({ onClose, onSave }) => {
                 clipRule="evenodd"
               />
             </svg>
-            <h3 className="text-lg font-semibold mb-2 text-gray-700 dark:text-gray-200">
+            <h3 className="text-lg font-semibold  text-gray-700 mb-6">
               Are you sure you want to delete this product?
             </h3>
             <div className="flex justify-center">
