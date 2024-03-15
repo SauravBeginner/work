@@ -6,11 +6,12 @@ import { LogoHeader } from "./LogoHeader";
 
 export function Footer() {
   const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
+  const isAuthenticated = useSelector((state) => state.auth.status);
 
   return (
     <footer
-      className={`bg-[#f2f4ea] shadow-lg mr-8 px-10 border rounded-lg ${
-        isSidebarOpen ? "ml-56" : "lg:ml-32 "
+      className={`bg-[#f2f4ea] shadow-lg  px-10 border rounded-lg ${
+        isAuthenticated && (isSidebarOpen ? "ml-56 mr-4" : "lg:ml-32 mr-8")
       } `}
     >
       <div className="container flex flex-col lg:flex-row justify-between items-center">

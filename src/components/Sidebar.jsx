@@ -76,7 +76,7 @@ const bottomItems = [
   {
     id: 6,
     name: "Logout",
-    href: "/d",
+    href: "/logout",
     icon: <IconLogout color="red" />,
   },
 ];

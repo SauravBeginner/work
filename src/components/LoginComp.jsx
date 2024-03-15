@@ -59,18 +59,18 @@ export const LoginComp = () => {
   };
 
   return (
-    <div className="bg-[#f2f4ea] p-0 m-0">
+    <div className="bg-[#f2f4ea]">
       <div className="mx-auto font-body">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 py-2">
-          <div className="bg-[#dcfce7] ">
-            <div className="hidden md:flex">
-              <div className="bg-[#dcfce7] w-full h-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 ">
+          <div className="bg-[rgb(220,252,231)] mt-10 ">
+            <div className="hidden md:flex ">
+              <div className=" w-full h-full">
                 <Img src="https://i.pinimg.com/originals/d1/54/66/d154660a6ae3104de2b0a314667a5ab6.png" />
               </div>
             </div>
           </div>
 
-          <div className="max-w-lg mx-auto lg:max-w-lg lg:px-8 font-body">
+          <div className="max-w-lg mx-auto lg:max-w-lg lg:px-8 font-body mt-10">
             <div className="bg-white space-x-4 p-20 rounded-lg flex items-center flex-col space-y-4 shadow-2xl  mt-14 lg:mt-0 ">
               <Img
                 src="https://i.pinimg.com/originals/d1/54/66/d154660a6ae3104de2b0a314667a5ab6.png"

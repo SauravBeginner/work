@@ -1,9 +1,18 @@
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import Modal from "react-modal";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/authSlice";
 
-export const LogoutModal = ({ onClose, onSave }) => {
+export const LogoutModal = ({
+  onClose,
+  onSave,
+  // title = "Are you sure you want to delete this Document?",
+  title = "Are you sure you want to Logout?",
+}) => {
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
   return (
     <Modal
       isOpen={true} // Set to the state controlling modal visibility
@@ -49,12 +58,15 @@ export const LogoutModal = ({ onClose, onSave }) => {
               />
             </svg>
             <h3 className="text-lg font-semibold  text-gray-700 mb-6">
-              Are you sure you want to delete this product?
+              {title}
             </h3>
             <div className="flex justify-center">
               <button
                 className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
-                onClick={() => navigate("/login")}
+                onClick={() => {
+                  dispatch(logout());
+                  navigate("/login");
+                }}
               >
                 Yes, I'm sure
               </button>

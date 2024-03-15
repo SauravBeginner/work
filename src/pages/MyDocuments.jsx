@@ -9,6 +9,7 @@ import Sidebar from "../components/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../utils/util";
+import { SvgCreateDocument } from "../components/Svgcomp";
 
 const dummyData = [
   {
@@ -94,20 +95,23 @@ const MyDocuments = () => {
   }, []);
   return (
     <>
-      <div className={`flex-1 mt-10 pt-10 pl-10 container`}>
-        <span
-          className="grid xl:grid-cols-12 lg:grid-cols-10 grid-cols- items-center mr-3 justify-center md:justify-items-stretch
-          "
-        >
-          <span className="col-span-4 lg:col-span-8 xl:col-span-10 my-2 justify-self-auto">
+      <div className={`flex-1 mt-10 pt-10 pl-10`}>
+        <div className="grid grid-cols-12 gap-4 items-center">
+          {/* SearchBar */}
+          <div className="col-span-12 lg:col-span-6 xl:col-span-8 my-2">
             <SearchBar />
-          </span>
-          <span className="col-span-1 lg:col-span-2 lg:pr-20 xl:pr-0 justify-self-auto">
+          </div>
+          {/* SvgCreateDocument */}
+          <div className="col-span-6 lg:col-span-2 xl:col-span-1 my-2">
+            <SvgCreateDocument />
+          </div>
+          {/* Total Documents Button */}
+          <div className="col-span-6 lg:col-span-4 xl:col-span-3 my-2">
             <Button className="">Total Documents: {dummyData?.length}</Button>
-          </span>
-        </span>
+          </div>
+        </div>
 
-        <main className="my-10 grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 xl:grid-cols-7 gap-3 justify-items-center md:justify-items-stretch">
+        <main className="my-10 grid grid-cols-1 lg:grid-cols-5 md:grid-cols-3 xl:grid-cols-6  2xl:grid-cols-7 gap-2 justify-items-center md:justify-items-stretch">
           {/* <main className="my-10 flex flex-auto flex-wrap gap-6 justify-center md:justify-between"> */}
           {dummyData?.map((item) => (
             <DocumentCard key={item._id} data={item} />

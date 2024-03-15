@@ -13,7 +13,7 @@ const AuthLayout = () => {
     <div className="flex">
       {isAuthenticated && <Sidebar />}
       <main
-        className={`flex-1 mt-4  mx-10 md:mx-0 min-h-screen ${
+        className={`flex-1 mt-6  mx-10 min-h-screen ${
           isAuthenticated ? (isSidebarOpen ? "md:ml-56" : "md:ml-28") : ""
         } `}
       >

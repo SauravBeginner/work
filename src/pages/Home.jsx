@@ -16,9 +16,7 @@ const Home = () => {
   const token = localStorage.getItem("token");
   const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
 
-  const { status, userData, loading, error } = useSelector(
-    (state) => state.auth
-  );
+  const isAtuthenticated = useSelector((state) => state.auth.status);
   const dispatch = useDispatch();
   useEffect(() => {
     // const fetchUserData = async () => {
@@ -55,7 +53,7 @@ const Home = () => {
       dispatch(fetchUserData(token));
       console.log(userData);
     }
-  }, []);
+  }, [isAtuthenticated]);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -66,7 +64,7 @@ const Home = () => {
   };
   return (
     <>
-      <main className={`flex-1 mt-4 `}>
+      <main className={`flex-1 mt-4 a`}>
         <HeroSection />
       </main>
 

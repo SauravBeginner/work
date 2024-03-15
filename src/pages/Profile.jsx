@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 
 const Profile = () => {
   return (
-    <main className="flex-1 mt-36">
+    <main className="flex-1 mt-28">
       <MyProfile />
     </main>
   );

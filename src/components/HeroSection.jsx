@@ -2,9 +2,13 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "./Button";
 import { Img } from "./Img";
+import { useDispatch, useSelector } from "react-redux";
 
 export const HeroSection = () => {
   const navigate = useNavigate();
+
+  const isAuthenticated = useSelector((state) => state.auth.status);
+
   return (
     <div className="max-w-7xl mx-auto lg:px-8 font-body">
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-16 py-20">
@@ -23,9 +27,11 @@ export const HeroSection = () => {
             below to realize your choices.
           </p>
           <div className="space-x-4">
-            <Button onClick={() => navigate("/login")}>
-              Get Started | Login{" "}
-            </Button>
+            {!isAuthenticated && (
+              <Button onClick={() => navigate("/login")}>
+                Get Started | Login
+              </Button>
+            )}
           </div>
         </div>
         <div className="hidden lg:flex justify-end">

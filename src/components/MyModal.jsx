@@ -7,7 +7,12 @@ import { Img } from "./Img";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/authSlice";
 
-export const MyModal = ({ onClose, onSave }) => {
+export const MyModal = ({
+  onClose,
+  onSave,
+  title = "Enter Document Name",
+  placeholder = "Enter Document Name",
+}) => {
   const [username, setUsername] = useState("");
   const dispatch = useDispatch();
 
@@ -42,9 +47,7 @@ export const MyModal = ({ onClose, onSave }) => {
           </div>
 
           <div className="text-center mb-4">
-            <h3 className="text-2xl font-semibold font-heading">
-              Enter Document Name
-            </h3>
+            <h3 className="text-2xl font-semibold font-heading">{title}</h3>
           </div>
 
           <div className="text-center mb-4">
@@ -54,7 +57,7 @@ export const MyModal = ({ onClose, onSave }) => {
                 type="text"
                 id="createDocument"
                 value={username}
-                placeholder="Enter document name"
+                placeholder={placeholder}
                 onChange={(e) => setUsername(e.target.value)}
                 required
                 className="input-style"

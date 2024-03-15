@@ -54,12 +54,9 @@ export const MyProfile = () => {
     <div className="max-w-4xl mx-auto p-2">
       <div className="flex flex-col lg:flex-row gap-8">
         <LeftProfile userData={userData} />
-        <div className="flex-1 grid grid-cols-2 gap-4">
-          <div
-            className="rounded-lg border bg-card text-card-foreground shadow-sm w-full"
-            data-v0-t="card"
-          >
-            <div className="flex flex-col space-y-1.5 p-6">
+        <div className="flex-1 grid grid-cols-2 gap-4 text-center">
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex flex-col justify-center items-center">
+            <div className=" p-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
@@ -86,11 +83,8 @@ export const MyProfile = () => {
               </a>
             </div>
           </div>
-          <div
-            className="rounded-lg border bg-card text-card-foreground shadow-sm w-full"
-            data-v0-t="card"
-          >
-            <div className="flex flex-col space-y-1.5 p-6">
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex flex-col justify-center items-center">
+            <div className=" p-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
@@ -101,28 +95,24 @@ export const MyProfile = () => {
                 strokeWidth={2}
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-[#3b82f6] text-4xl"
+                className="text-[#ef4444] text-4xl"
               >
-                <circle cx={12} cy={10} r={8} />
-                <circle cx={12} cy={10} r={3} />
-                <path d="M7 22h10" />
-                <path d="M12 22v-4" />
+                <polyline points="4 7 4 4 20 4 20 7" />
+                <line x1={9} x2={15} y1={20} y2={20} />
+                <line x1={12} x2={12} y1={4} y2={20} />
               </svg>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-2">Web Design</h3>
+              <h3 className="text-xl font-semibold mb-2">Graphic Design</h3>
             </div>
             <div className="flex items-center p-6 border-t pt-2">
-              <a className="text-[#3b82f6]" href="#">
+              <a className="text-[#ef4444]" href="#">
                 MORE
               </a>
             </div>
           </div>
-          <div
-            className="rounded-lg border bg-card text-card-foreground shadow-sm w-full"
-            data-v0-t="card"
-          >
-            <div className="flex flex-col space-y-1.5 p-6">
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex flex-col justify-center items-center">
+            <div className=" p-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
@@ -133,28 +123,24 @@ export const MyProfile = () => {
                 strokeWidth={2}
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-[#22c55e] text-4xl"
+                className="text-[#ef4444] text-4xl"
               >
-                <rect width={14} height={8} x={5} y={2} rx={2} />
-                <rect width={20} height={8} x={2} y={14} rx={2} />
-                <path d="M6 18h2" />
-                <path d="M12 18h6" />
+                <polyline points="4 7 4 4 20 4 20 7" />
+                <line x1={9} x2={15} y1={20} y2={20} />
+                <line x1={12} x2={12} y1={4} y2={20} />
               </svg>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-2">Software</h3>
+              <h3 className="text-xl font-semibold mb-2">Graphic Design</h3>
             </div>
             <div className="flex items-center p-6 border-t pt-2">
-              <a className="text-[#22c55e]" href="#">
+              <a className="text-[#ef4444]" href="#">
                 MORE
               </a>
             </div>
           </div>
-          <div
-            className="rounded-lg border bg-card text-card-foreground shadow-sm w-full"
-            data-v0-t="card"
-          >
-            <div className="flex flex-col space-y-1.5 p-6">
+          <div className="rounded-lg border bg-card text-card-foreground shadow-sm w-full flex flex-col justify-center items-center">
+            <div className=" p-6">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}
@@ -165,23 +151,23 @@ export const MyProfile = () => {
                 strokeWidth={2}
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="text-[#facc15] text-4xl"
+                className="text-[#ef4444] text-4xl"
               >
-                <rect x={2} y={4} width={20} height={16} rx={2} />
-                <path d="M10 4v4" />
-                <path d="M2 8h20" />
-                <path d="M6 4v4" />
+                <polyline points="4 7 4 4 20 4 20 7" />
+                <line x1={9} x2={15} y1={20} y2={20} />
+                <line x1={12} x2={12} y1={4} y2={20} />
               </svg>
             </div>
             <div className="p-6">
-              <h3 className="text-xl font-semibold mb-2">Application</h3>
+              <h3 className="text-xl font-semibold mb-2">Graphic Design</h3>
             </div>
             <div className="flex items-center p-6 border-t pt-2">
-              <a className="text-[#facc15]" href="#">
+              <a className="text-[#ef4444]" href="#">
                 MORE
               </a>
             </div>
           </div>
+          {/* Repeat the same structure for other card items */}
         </div>
       </div>
     </div>

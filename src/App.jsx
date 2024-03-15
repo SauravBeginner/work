@@ -81,9 +81,9 @@ function App() {
           <Route element={<AuthLayout />}>
             <Route exact path="/" element={<Home />} />
           </Route>{" "}
-          <Route exact path="/logout" element={<LogoutModal />} />
+          {/* <Route exact path="/logout" element={<LogoutModal />} /> */}
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          {/* <Route path="/signup" element={<Signup />} /> */}
           {/* Protected routes - accessible only if isAuthenticated is true */}
           {isAuthenticated ? (
             <Route element={<AuthLayout />}>
@@ -95,7 +95,7 @@ function App() {
             </Route>
           ) : (
             <>
-              <Route path="*" element={<Navigate to="/login" replace />} />
+              <Route path="/*" element={<Navigate to="/login" replace />} />
             </>
           )}
         </Routes>
