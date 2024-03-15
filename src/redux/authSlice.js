@@ -30,28 +30,28 @@ const authSlice = createSlice({
   reducers: {
     login: (state, action) => {
       state.status = true;
-      state.userData = action.payload.userData;
+      //    state.userData = action.payload.userData;
     },
     logout: (state) => {
       state.status = false;
       state.userData = null;
     },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchUserData.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchUserData.fulfilled, (state, action) => {
-        state.loading = false;
-        state.userData = action.payload;
-      })
-      .addCase(fetchUserData.rejected, (state, action) => {
-        state.loading = false;
-        state.userData = action.payload;
-      });
-  },
+  // extraReducers: (builder) => {
+  //   builder
+  //     .addCase(fetchUserData.pending, (state) => {
+  //       state.loading = true;
+  //       state.error = null;
+  //     })
+  //     .addCase(fetchUserData.fulfilled, (state, action) => {
+  //       state.loading = false;
+  //       state.userData = action.payload;
+  //     })
+  //     .addCase(fetchUserData.rejected, (state, action) => {
+  //       state.loading = false;
+  //       state.userData = action.payload;
+  //     });
+  // },
 });
 
 export const { login, logout } = authSlice.actions;

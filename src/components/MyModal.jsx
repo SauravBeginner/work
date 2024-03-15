@@ -4,13 +4,17 @@ import { Input } from "./Input";
 import { Button } from "./Button";
 import { IconX } from "@tabler/icons-react";
 import { Img } from "./Img";
+import { useDispatch } from "react-redux";
+import { logout } from "../redux/authSlice";
 
 export const MyModal = ({ onClose, onSave }) => {
   const [username, setUsername] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(username);
+    dispatch(logout());
+    //   onSave(username);
     onClose();
   };
 

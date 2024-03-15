@@ -21,7 +21,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar } from "../redux/sidebarSlice";
 import { logout } from "../redux/authSlice";
-import { isAuthenticated } from "../App";
+// import { isAuthenticated } from "../App";
 import { IconFolderPlus } from "@tabler/icons-react";
 import { IconEdit } from "@tabler/icons-react";
 import LogoutModal from "./LogoutModal";
@@ -85,6 +85,8 @@ const Sidebar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
+  const isAuthenticated = useSelector((state) => state.auth.status);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
 

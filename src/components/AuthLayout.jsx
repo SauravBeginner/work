@@ -3,10 +3,11 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import { useDispatch, useSelector } from "react-redux";
-import { isAuthenticated } from "../App";
+// import { isAuthenticated } from "../App";
 
 const AuthLayout = () => {
   const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
+  const isAuthenticated = useSelector((state) => state.auth.status);
 
   return (
     <div className="flex">

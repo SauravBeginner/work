@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Avatar } from "./Avatar";
 import { LogoHeader } from "./LogoHeader";
 import { LogoImage } from "./LogoImage";
@@ -7,13 +7,15 @@ import { IconMenu2 } from "@tabler/icons-react";
 import { toggleSidebar } from "../redux/sidebarSlice";
 
 import { useDispatch, useSelector } from "react-redux";
-import { isAuthenticated } from "../App";
+// import { isAuthenticated } from "../App";
 import { Button } from "./Button";
 
 export const Navbar = () => {
   const dispatch = useDispatch();
   //const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
+  const isAuthenticated = useSelector((state) => state.auth.status);
 
+  const location = useLocation();
   const handleSidebar = () => {
     dispatch(toggleSidebar());
   };
@@ -33,7 +35,9 @@ export const Navbar = () => {
           {isAuthenticated ? (
             <Avatar />
           ) : (
-            <Button className="h-10 px-10 text-center">Login</Button>
+            location.pathname !== "/login" && (
+              <Button className="h-10 px-10 text-center">Login</Button>
+            )
           )}
         </Link>
       </div>

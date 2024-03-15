@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import useToken from "../hooks/useToken";
 import { Button } from "./Button";
 import { Img } from "./Img";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/authSlice";
 
 export const LoginComp = () => {
   const [email, setEmail] = useState("");
@@ -14,11 +16,12 @@ export const LoginComp = () => {
 
   const { setToken } = useToken();
 
+  const dispatch = useDispatch();
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  const navigate = useNavigate("/");
+  const navigate = useNavigate();
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -50,6 +53,11 @@ export const LoginComp = () => {
     }
   };
 
+  const handleAuth = () => {
+    dispatch(login());
+    navigate("/");
+  };
+
   return (
     <div className="bg-[#f2f4ea] p-0 m-0">
       <div className="mx-auto font-body">
@@ -78,6 +86,7 @@ export const LoginComp = () => {
               <button
                 type="button"
                 className="relative inline-flex items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none shadow-md"
+                onClick={handleAuth}
               >
                 <span className="mr-2 inline-block">
                   <svg

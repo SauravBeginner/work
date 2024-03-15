@@ -29,8 +29,6 @@ import AuthLayout from "./components/AuthLayout";
 import EditProfile from "./pages/EditProdile";
 import LogoutModal from "./components/LogoutModal";
 
-export const isAuthenticated = true;
-
 function App() {
   // const [loading, setLoading] = useState(true);
   // const dispatch = useDispatch();
@@ -71,6 +69,8 @@ function App() {
 
   //   fetchUserData();
   // }, []);
+
+  const isAuthenticated = useSelector((state) => state.auth.status);
 
   return (
     <>
