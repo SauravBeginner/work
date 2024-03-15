@@ -32,13 +32,11 @@ export const Navbar = () => {
       </Link>
       <div className="md:block">
         <Link to={"/profile"}>
-          {isAuthenticated ? (
-            <Avatar />
-          ) : (
-            location.pathname !== "/login" && (
-              <Button className="h-10 px-10 text-center">Login</Button>
-            )
-          )}
+          {isAuthenticated
+            ? location.pathname !== "/login" && <Avatar />
+            : location.pathname !== "/login" && (
+                <Button className="h-10 px-10 text-center">Login</Button>
+              )}
         </Link>
       </div>
     </nav>
