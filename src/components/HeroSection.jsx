@@ -29,7 +29,11 @@ export const HeroSection = () => {
           </div>
         </div>
         <div className="hidden lg:flex justify-end">
-          <Img src="https://i.pinimg.com/originals/d1/54/66/d154660a6ae3104de2b0a314667a5ab6.png" />
+          <Img
+            // src="https://i.pinimg.com/originals/d1/54/66/d154660a6ae3104de2b0a314667a5ab6.png"
+
+            src="https://img.freepik.com/free-vector/browsing-online-concept-illustration_114360-4319.jpg?w=740&t=st=1710472612~exp=1710473212~hmac=5834a3f3f3b03bbd3207c20e321530a62c4629066d0d2485ba7a0bfbcd510f78"
+          />
         </div>
       </div>
     </div>
