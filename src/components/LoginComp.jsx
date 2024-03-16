@@ -71,7 +71,7 @@ export const LoginComp = () => {
           </div>
 
           <div className="max-w-lg mx-auto lg:max-w-lg lg:px-8 font-body mb-20 lg:mb-0 mt-0 lg:mt-10">
-            <div className="bg-white space-x-4 p-20 rounded-lg flex items-center flex-col space-y-4 shadow-2xl  mt-10 lg:mt-0 ">
+            <div className="bg-[#fefffc] space-x-4 p-20 rounded-lg flex items-center flex-col space-y-4 shadow-2xl  mt-10 lg:mt-0 ">
               <Img
                 src="https://i.pinimg.com/originals/d1/54/66/d154660a6ae3104de2b0a314667a5ab6.png"
                 alt="Logo"

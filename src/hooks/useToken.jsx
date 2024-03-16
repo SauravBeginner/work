@@ -18,7 +18,7 @@ const useToken = () => {
 
   useEffect(() => {
     fetchToken;
-  }, [token]);
+  }, []);
 
   const saveToken = (userToken) => {
     localStorage.setItem("token", JSON.stringify(userToken));

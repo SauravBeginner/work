@@ -10,7 +10,7 @@ const AuthLayout = () => {
   const isAuthenticated = useSelector((state) => state.auth.status);
 
   return (
-    <div className="flex">
+    <div className="flex bg-[#fefffc]">
       {isAuthenticated && <Sidebar />}
       <main
         className={`flex-1 mt-6  mx-10 min-h-screen ${

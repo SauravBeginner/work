@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { JSON_URL } from "../utils/util";
 
-export const MyModal = ({
+export const EditModal = ({
   onClose,
   onSave,
   title = "Enter Document Name",
@@ -20,20 +20,6 @@ export const MyModal = ({
   const [errorMsg, setErrorMsg] = useState("");
 
   const dispatch = useDispatch();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(`${JSON_URL}/documents`, {
-        name: documentName,
-        //   // Add other fields as needed
-      });
-      console.log("Document created:", response.data);
-      onClose(); // Close the modal after creating the document
-    } catch (error) {
-      console.error("Error creating document:", error);
-    }
-  };
 
   const handleUpdate = async (e) => {
     try {
@@ -47,7 +33,7 @@ export const MyModal = ({
         console.log("Document updated:", response.data);
         onClose(); // Close the modal after updating the document
       }
-      setErrorMSg("No documents Found!");
+      setErrorMsg("No documents Found!");
     } catch (error) {
       console.error("Error updating document:", error);
     }
@@ -81,7 +67,7 @@ export const MyModal = ({
           </div>
 
           <div className="text-center mb-4">
-            <form onSubmit={handleSubmit}>
+            <form>
               <Input
                 label="Document name"
                 type="text"
@@ -95,12 +81,13 @@ export const MyModal = ({
                 className="input-style"
               />
             </form>
+            {errorMsg && <p className="text-red-500">{errorMsg}</p>}
           </div>
 
           <div className="text-center">
             <Button
               className="px-5 py-2 h-12 border shadow-lg text-gray-black font-semibold bg-accent-300 hover:transform hover:scale-110 transition-transform duration-300"
-              onClick={handleSubmit}
+              onClick={handleUpdate}
             >
               Save
             </Button>

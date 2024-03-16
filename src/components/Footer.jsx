@@ -10,7 +10,7 @@ export function Footer() {
 
   return (
     <footer
-      className={`bg-[#f2f4ea] shadow-lg  px-10 border rounded-lg ${
+      className={`bg-[#fbfff5] shadow-lg  px-10 border rounded-lg text-base font-semibold  ${
         isAuthenticated && (isSidebarOpen ? "ml-56 mr-4" : "lg:ml-32 mr-8")
       } `}
     >
@@ -36,7 +36,7 @@ export function Footer() {
             <li className="p-2">
               <Link
                 className="font-medium text-gray-600 hover:text-gray-700"
-                to="#"
+                to="/contact"
               >
                 Contact Us
               </Link>
@@ -63,8 +63,8 @@ export function Footer() {
             <CiFacebook size={30} />
           </Link> */}
         </div>
-        <p className="text-sm font-normal text-gray-500 text-center md:text-left">
-          All content copyright © 2023 VersionVaultHub.
+        <p className=" text-center md:text-left">
+          copyright © 2023 VersionVaultHub
         </p>
       </div>
     </footer>

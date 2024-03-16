@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Avatar } from "../components/Avatar";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserData } from "../redux/authSlice";
+// import { fetchUserData } from "../redux/authSlice";
 import { useEffect } from "react";
 import { IconCamera } from "@tabler/icons-react";
+import { Button } from "./Button";
 
 export const EditProfileComp = () => {
   const token = localStorage.getItem("token");
@@ -21,11 +22,11 @@ export const EditProfileComp = () => {
     navigator.clipboard.writeText(userData?.user?.name || "");
     // Optionally, you can show a message indicating that the username has been copied
   };
-  useEffect(() => {
-    if (token) {
-      dispatch(fetchUserData(token));
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (token) {
+  //     dispatch(fetchUserData(token));
+  //   }
+  // }, []);
 
   const handleSave = () => {
     // Dispatch an action to save the updated profile information
@@ -47,10 +48,10 @@ export const EditProfileComp = () => {
             Hi, I'm Jane Doe. Click here to add your own text and edit me.
           </p>
           <p className="text-sm mb-6">Image by Freepik</p>
-          <div className="bg-[#0f3b19] text-white p-6 rounded-lg flex flex-col items-center relative">
-            <div className="absolute top-0 right-0 flex items-center">
-              <span className="text-sm text-gray-400">
-                Hello, {userData?.user?.name || "username"}
+          <div className="bg-[#daf0d8] text-black p-6 rounded-lg flex flex-col items-center relative">
+            <div className="absolute top-0 right-0 flex items-center m-5">
+              <span className="text-base text-gray-600">
+                {userData?.user?.name || "#username"}
               </span>
               <button className="ml-2" onClick={handleCopyUsername}>
                 <IconCamera size={20} />
@@ -58,7 +59,7 @@ export const EditProfileComp = () => {
             </div>
             <label
               htmlFor="profilePicInput"
-              className="relative flex h-40 w-40 overflow-hidden rounded-full border-gray-100 border-2"
+              className="relative flex h-40 w-40 overflow-hidden rounded-full border-gray-900 border-2"
             >
               <Avatar className={"h-full w-full"} />
               {/* Camera icon */}
@@ -76,17 +77,13 @@ export const EditProfileComp = () => {
             </label>
             <input
               type="text"
-              className="text-2xl text-center font-bold my-4 bg-transparent text-white border-b border-gray-100 px-2 py-1  focus:outline-none"
+              className="text-2xl text-center font-bold my-4 bg-transparent text-black border-b border-gray-900 px-2 py-1  focus:outline-none"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-
-            <button
-              className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-primary/90 h-10 px-4 py-2 bg-white text-[#1e40af]"
-              onClick={handleSave}
-            >
-              SAVE
-            </button>
+            <Button className="bg-[#6df78a] border-2 border-transparent">
+              Save
+            </Button>
           </div>
         </div>
         {/* Add editable fields for other profile information */}

@@ -67,7 +67,7 @@ export const SvgGallery = () => {
 };
 
 //SvgCreateDocument
-export const SvgCreateDocument = ({ disabled }) => {
+export const SvgCreateDocument = ({ disabled, color }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -79,7 +79,7 @@ export const SvgCreateDocument = ({ disabled }) => {
       strokeWidth="1"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={disabled ? "text-gray-500" : "text-purple-500"} // Change class based on disabled state
+      className={disabled ? "text-gray-500" : color ? color : "text-purple-500"} // Change class based on disabled state
     >
       <path d="M12 19h-7a2 2 0 0 1 -2 -2v-11a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v3.5" />
       <path d="M16 19h6" />

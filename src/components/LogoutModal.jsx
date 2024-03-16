@@ -3,7 +3,7 @@ import React from "react";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
 import { logout } from "../redux/authSlice";
-
+import { IoIosAlert } from "react-icons/io";
 export const LogoutModal = ({
   onClose,
   onSave,
@@ -57,6 +57,7 @@ export const LogoutModal = ({
                 clipRule="evenodd"
               />
             </svg>
+
             <h3 className="text-lg font-semibold  text-gray-700 mb-6">
               {title}
             </h3>

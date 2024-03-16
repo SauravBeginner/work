@@ -9,7 +9,7 @@ const Login = () => {
     <>
       <LoginComp />
 
-      <footer className={`bg-white shadow-lg m px-10 border rounded-lg`}>
+      <footer className={`bg-[#fefffc] shadow-lg m px-10 border rounded-lg`}>
         <div className="container flex flex-col lg:flex-row justify-between items-center">
           <div className="md:mt-0">
             <ul className="flex flex-col md:flex-row md:flex-wrap items-center ">

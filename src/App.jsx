@@ -28,6 +28,9 @@ import { useSelector } from "react-redux";
 import AuthLayout from "./components/AuthLayout";
 import EditProfile from "./pages/EditProdile";
 import LogoutModal from "./components/LogoutModal";
+import Contact from "./pages/Contact";
+import { NotFound } from "./pages/NotFound";
+import DocumentDetails from "./pages/DocumentDetails";
 
 function App() {
   // const [loading, setLoading] = useState(true);
@@ -80,7 +83,8 @@ function App() {
           {/* Routes accessible to everyone */}
           <Route element={<AuthLayout />}>
             <Route exact path="/" element={<Home />} />
-          </Route>{" "}
+          </Route>
+
           {/* <Route exact path="/logout" element={<LogoutModal />} /> */}
           <Route path="/login" element={<Login />} />
           {/* <Route path="/signup" element={<Signup />} /> */}
@@ -88,10 +92,13 @@ function App() {
           {isAuthenticated ? (
             <Route element={<AuthLayout />}>
               <Route path="/addDocument" element={<AddDocument />} />
-              <Route path="/myDocuments" element={<MyDocuments />} />
+              <Route path="/myDocuments" element={<MyDocuments />} />{" "}
+              <Route path="/myDocuments/:id" element={<DocumentDetails />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/editprofile" element={<EditProfile />} />
+              <Route exact path="/contact" element={<Contact />} />{" "}
+              <Route path="*" element={<NotFound />} />
             </Route>
           ) : (
             <>
