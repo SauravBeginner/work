@@ -3,6 +3,7 @@ import { Button } from "../components/Button";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { JSON_URL } from "../utils/util";
+import Loader from "../components/Loader";
 
 const DocumentDetails = () => {
   let { id } = useParams();
@@ -10,6 +11,8 @@ const DocumentDetails = () => {
   const [fileName, setFileName] = useState("");
   const [document, setDocument] = useState();
   const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const getDocumentDetails = async (e) => {
     try {
@@ -18,8 +21,11 @@ const DocumentDetails = () => {
         console.log("Document Details:", response.data);
 
         setDocument(response.data);
+        setErrorMsg("");
+        setLoading(false);
+      } else {
+        setErrorMsg("No documents Found!");
       }
-      setErrorMsg("No documents Found!");
     } catch (error) {
       console.error("Error updating document:", error);
     }
@@ -30,6 +36,7 @@ const DocumentDetails = () => {
     setFileName(selectedFile.name);
   };
   useEffect(() => {
+    setLoading(true);
     getDocumentDetails();
   }, []);
 
@@ -37,6 +44,10 @@ const DocumentDetails = () => {
     console.log("File Name:", fileName);
     console.log("File:", file);
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="container mx-auto my-10">
@@ -102,7 +113,7 @@ const DocumentDetails = () => {
                     <span className="text-gray-500">{fileName}</span>
                   </div>
                 </div>
-
+                {errorMsg && <p className="text-red-500">{errorMsg}</p>}
                 <Button
                   type="button"
                   onClick={handleUpload}

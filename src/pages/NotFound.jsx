@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import { Button } from "../components/Button";
 
-export function NotFound() {
+const NotFound = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -54,4 +54,6 @@ export function NotFound() {
       </div>
     </div>
   );
-}
+};
+
+export default NotFound;

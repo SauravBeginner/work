@@ -1,39 +1,35 @@
-import { useNavigate } from "react-router-dom";
-import React from "react";
+import { useState } from "react";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
-import { logout } from "../redux/authSlice";
-import { IoIosAlert } from "react-icons/io";
-import axios from "axios";
-import { JSON_URL } from "../utils/util";
+import { deleteDocument } from "../redux/documentSlice";
 
 export const DeleteModal = ({
   title = "Are you sure you want to delete this Document?",
   onClose,
-  onSave,
-  placeholder = "Enter Document Name",
   documentId,
 }) => {
-  const handleDelete = async (documentId) => {
+  const [errMsg, setErrMsg] = useState("");
+  const dispatch = useDispatch();
+
+  const handleDelete = async () => {
     try {
       if (documentId) {
-        const response = await axios.delete(
-          `${JSON_URL}/documents/${documentId}`
-        );
-        console.log("Document Delted!:", response.data);
-        onClose(); // Close the modal after updating the document
+        dispatch(deleteDocument(documentId));
+        onClose(); // Close the modal after dispatching deleteDocument action
+      } else {
+        setErrMsg("No document found!");
       }
-      setErrorMsg("No documents Found!");
     } catch (error) {
-      console.error("Error updating document:", error);
+      console.log("Error deleting document:", error);
     }
   };
+
   return (
     <Modal
-      isOpen={true} // Set to the state controlling modal visibility
-      onRequestClose={() => {}} // Function to handle closing the modal
-      className="modal-content" // Class name for modal content
-      overlayClassName="modal-overlay" // Class name for modal overlay
+      isOpen={true}
+      onRequestClose={() => {}}
+      className="modal-content"
+      overlayClassName="modal-overlay"
     >
       <div className="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-gray-800 bg-opacity-50 z-50">
         <div className="bg-[#f2f4ea] p-8 rounded-lg shadow-md">
@@ -73,13 +69,13 @@ export const DeleteModal = ({
               />
             </svg>
 
-            <h3 className="text-lg font-semibold  text-gray-700 mb-6">
+            <h3 className="text-lg font-semibold text-gray-700 mb-6">
               {title}
             </h3>
             <div className="flex justify-center">
               <button
                 className="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center"
-                onClick={() => handleDelete(documentId)}
+                onClick={handleDelete}
               >
                 Yes, I'm sure
               </button>
@@ -96,5 +92,3 @@ export const DeleteModal = ({
     </Modal>
   );
 };
-
-export default DeleteModal;

@@ -7,15 +7,14 @@ import { Img } from "./Img";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { JSON_URL } from "../utils/util";
+import { createDocument } from "../redux/documentSlice"; // Import the createDocument action
 
 export const MyModal = ({
   onClose,
-  onSave,
   title = "Enter Document Name",
   placeholder = "Enter Document Name",
   documentId,
 }) => {
-  // const [username, setUsername] = useState("");
   const [documentName, setDocumentName] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -24,32 +23,15 @@ export const MyModal = ({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${JSON_URL}/documents`, {
-        name: documentName,
-        //   // Add other fields as needed
-      });
-      console.log("Document created:", response.data);
+      // const response = await axios.post(`${JSON_URL}/documents`, {
+      //   name: documentName,
+      //   //   // Add other fields as needed
+      // });
+      // console.log("Document created:", response.data);
+      dispatch(createDocument({ name: documentName })); // Dispatch the createDocument action
       onClose(); // Close the modal after creating the document
     } catch (error) {
       console.error("Error creating document:", error);
-    }
-  };
-
-  const handleUpdate = async (e) => {
-    try {
-      if (documentId) {
-        const response = await axios.put(
-          `${JSON_URL}/documents/${documentId}`,
-          {
-            name: documentName,
-          }
-        );
-        console.log("Document updated:", response.data);
-        onClose(); // Close the modal after updating the document
-      }
-      setErrorMSg("No documents Found!");
-    } catch (error) {
-      console.error("Error updating document:", error);
     }
   };
 

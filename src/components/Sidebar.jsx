@@ -210,7 +210,7 @@ const Sidebar = () => {
                 </span>
               </button>
             ))}
-            <span
+            {/* <span
               className="fixed bottom-4 z-50 inline-flex items-center whitespace-nowrap rounded-md text-sm hover:font-bold ring-offset-background transition-colors h-14 px-3 py-2 justify-start gap-2 hover:shadow-lg text-black"
               //  onClick={handleSidebar}
             >
@@ -219,7 +219,7 @@ const Sidebar = () => {
               ) : (
                 <IconLayoutSidebarRightCollapse stroke={1} />
               )}
-            </span>
+            </span> */}
           </nav>
         </div>
       </aside>{" "}

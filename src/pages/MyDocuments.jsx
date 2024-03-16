@@ -4,11 +4,11 @@ import { DocumentCard } from "../components/DocumentCard";
 
 import { SearchBar } from "../components/SearchBar";
 
-import { useSelector } from "react-redux";
 import axios from "axios";
 import { BASE_URL, JSON_URL } from "../utils/util";
 import { SvgCreateDocument } from "../components/Svgcomp";
 import { MyModal } from "../components/MyModal";
+import Loader from "../components/Loader";
 
 const dummyData = [
   {
@@ -60,11 +60,18 @@ const dummyData = [
       "https://img.freepik.com/free-vector/document-vector-colorful-design_341269-1262.jpg",
   },
 ];
-const MyDocuments = () => {
-  const [data, setData] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+import { useDispatch, useSelector } from "react-redux";
+import { fetchDocuments } from "../redux/documentSlice";
 
-  const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
+const MyDocuments = () => {
+  // const [data, setData] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [loading, setLoading] = useState(false);
+
+  const dispatch = useDispatch();
+
+  // const isSidebarOpen = useSelector((state) => state.sidebar.isSidebarOpen);
+  const { data, loading, error } = useSelector((state) => state.documents);
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -73,6 +80,19 @@ const MyDocuments = () => {
   const handleSaveDocument = (documentName) => {
     console.log("Saving document with name:", documentName);
   };
+  // const fetchDocuments = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const documentData = await axios.get(`${JSON_URL}/documents`);
+  //     console.log(data);
+  //     setData(documentData?.data);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     console.error("Error fetching documents:", error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -100,17 +120,13 @@ const MyDocuments = () => {
       }
     };
 
-    const fetchDocuments = async () => {
-      try {
-        const documentData = await axios.get(`${JSON_URL}/documents`);
-        setData(documentData?.data);
-      } catch (error) {
-        console.error("Error fetching documents:", error);
-      }
-    };
-
-    fetchDocuments();
+    // fetchDocuments();
+    dispatch(fetchDocuments());
   }, [data]);
+
+  if (loading) {
+    return <Loader />;
+  }
   return (
     <>
       {isModalOpen && <MyModal onClose={closeModal} />}
